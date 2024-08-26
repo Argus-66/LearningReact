@@ -5,7 +5,7 @@ const useTodos = () => {
     const [todos, setTodos] = useState([]);
   
     const addTodo = (todo) => {
-      setTodos((prev) => [{ id: Date.now(), todo, completed: false }, ...prev]);
+      setTodos((prev) => [{ id: Date.now(), ...todo}, ...prev]);
     };
   
     const toggleTodo = (id) => {
@@ -20,11 +20,10 @@ const useTodos = () => {
       setTodos((prev) => prev.filter((todo) => todo.id !== id));
     };
   
-    const updateTodo = (id, updatedTodo) => {
+    const updateTodo = (id, todo) => {
       setTodos((prev) =>
-        prev.map((todo) =>
-          todo.id === id ? { ...todo, todo: updatedTodo } : todo
-        )
+        (prev.map((prevTodo) =>
+          (todo.id === id ? todo : prevTodo)))
       );
     };
   
