@@ -1,11 +1,17 @@
 import { useState } from "react";
+import useLocalStorageTodos from "../Storage/LocalStorage";
 
 
 const useTodos = () => {
     const [todos, setTodos] = useState([]);
+
+    // Use the localStorage hook
+    useLocalStorageTodos(todos, setTodos);
+
   
     const addTodo = (todo) => {
       setTodos((prev) => [{ id: Date.now(), ...todo}, ...prev]);
+
     };
   
     const toggleTodo = (id) => {
