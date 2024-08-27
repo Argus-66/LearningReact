@@ -3,7 +3,7 @@ import { TodoProvider } from './Contexts'
 import './App.css'
 import useTodos from './Functions/Todos'
 import { TodoForm }from './Components/index';
-import { TodoItems } from './Components/index';
+import { TodoItem } from './Components/index';
 
 function App() {
     const { todos, addTodo, updateTodo, deleteTodo, toggleTodo } = useTodos();
@@ -19,7 +19,7 @@ function App() {
             </div>
             <div className='flex flex-wrap gap-y-3'>
                 {/* Loop and Add Todo Item here */}
-                {/* <TodoItem /> */}
+                <TodoItem />
             </div>
         </div>
       </div>
